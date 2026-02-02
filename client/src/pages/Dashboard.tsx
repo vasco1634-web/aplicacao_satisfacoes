@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { pt } from "date-fns/locale";
 
 const COLORS = {
   very_satisfied: '#22c55e', // green-500
@@ -256,7 +256,7 @@ export default function Dashboard() {
                   history?.data.map((item: any) => (
                     <tr key={item.id} className="hover:bg-slate-50 transition-colors">
                       <td className="px-6 py-4 text-slate-600">
-                        {format(new Date(item.createdAt), "dd 'de' MMMM 'às' HH:mm", { locale: ptBR })}
+                        {format(new Date(item.createdAt), "dd 'de' MMMM 'às' HH:mm", { locale: pt })}
                       </td>
                       <td className="px-6 py-4 font-medium text-slate-900">
                         {LABELS[item.rating]}

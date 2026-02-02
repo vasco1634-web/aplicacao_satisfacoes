@@ -50,7 +50,7 @@ export function StatsCard({
           )}>
             {trend}
           </span>
-          <span className="text-slate-400">vs last period</span>
+          <span className="text-slate-400">vs período anterior</span>
         </div>
       )}
     </div>

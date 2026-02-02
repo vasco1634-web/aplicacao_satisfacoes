@@ -57,8 +57,8 @@ export default function Kiosk() {
         onError: () => {
           toast({
             variant: "destructive",
-            title: "Erro ao salvar",
-            description: "Não foi possível salvar sua avaliação. Tente novamente.",
+            title: "Erro ao guardar",
+            description: "Não foi possível guardar a sua avaliação. Tente novamente.",
           });
           // Optionally hide thank you screen if error is critical, 
           // but better UX is to assume success for kiosk unless persistent failure
@@ -85,10 +85,10 @@ export default function Kiosk() {
           className="inline-block"
         >
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            Como foi seu atendimento?
+            Como foi o seu atendimento?
           </h1>
           <p className="text-lg md:text-2xl text-slate-500 max-w-2xl mx-auto">
-            Sua opinião é muito importante para melhorarmos nossos serviços.
+            A sua opinião é muito importante para melhorarmos os nossos serviços.
           </p>
         </motion.div>
       </header>
@@ -125,7 +125,7 @@ export default function Kiosk() {
 
       {/* Footer */}
       <footer className="py-6 text-center text-slate-400 text-sm md:text-base">
-        <p>© 2024 Pesquisa de Satisfação</p>
+        <p>© 2024 Inquérito de Satisfação</p>
       </footer>
 
       {/* Fullscreen Thank You Overlay */}
@@ -149,7 +149,7 @@ export default function Kiosk() {
                 Obrigado!
               </h2>
               <p className="text-xl md:text-3xl text-slate-600 max-w-2xl mx-auto">
-                Agradecemos sua participação. Sua opinião faz a diferença!
+                Agradecemos a sua participação. A sua opinião faz a diferença!
               </p>
               
               <motion.div 
