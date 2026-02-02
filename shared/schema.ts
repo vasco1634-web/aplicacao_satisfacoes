@@ -1,18 +1,29 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+
+import { pgTable, text, serial, timestamp, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const feedback = pgTable("feedback", {
+  id: serial("id").primaryKey(),
+  rating: text("rating").notNull(), // 'very_satisfied', 'satisfied', 'unsatisfied'
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const insertFeedbackSchema = createInsertSchema(feedback).omit({ 
+  id: true, 
+  createdAt: true 
 });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type Feedback = typeof feedback.$inferSelect;
+export type InsertFeedback = z.infer<typeof insertFeedbackSchema>;
+
+export type FeedbackStats = {
+  total: number;
+  breakdown: Record<string, number>;
+  percentages: Record<string, number>;
+};
+
+export type DateFilter = {
+  startDate?: string;
+  endDate?: string;
+};
