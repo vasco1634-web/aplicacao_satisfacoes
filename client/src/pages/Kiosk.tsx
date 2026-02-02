@@ -29,7 +29,7 @@ function EmotionButton({ rating, label, icon, colorClass, onClick, disabled }: E
         disabled ? "opacity-50 cursor-not-allowed grayscale" : colorClass
       )}
     >
-      <div className="mb-6 transform scale-150 md:scale-[2.5]">
+      <div className="mb-6">
         {icon}
       </div>
       <span className="text-xl md:text-3xl font-bold tracking-tight text-white text-shadow">
@@ -99,7 +99,7 @@ export default function Kiosk() {
           <EmotionButton
             rating="very_satisfied"
             label="Muito Satisfeito"
-            icon={<Smile className="w-16 h-16 md:w-20 md:h-20 text-white" />}
+            icon={<Smile className="w-12 h-12 md:w-16 md:h-16 text-white" />}
             colorClass="bg-gradient-to-br from-green-400 to-green-600 hover:shadow-green-300/50"
             onClick={() => handleVote('very_satisfied')}
             disabled={showThankYou}
@@ -107,7 +107,7 @@ export default function Kiosk() {
           <EmotionButton
             rating="satisfied"
             label="Satisfeito"
-            icon={<Meh className="w-16 h-16 md:w-20 md:h-20 text-white" />}
+            icon={<Meh className="w-12 h-12 md:w-16 md:h-16 text-white" />}
             colorClass="bg-gradient-to-br from-yellow-400 to-amber-500 hover:shadow-yellow-300/50"
             onClick={() => handleVote('satisfied')}
             disabled={showThankYou}
@@ -115,7 +115,7 @@ export default function Kiosk() {
           <EmotionButton
             rating="unsatisfied"
             label="Insatisfeito"
-            icon={<Frown className="w-16 h-16 md:w-20 md:h-20 text-white" />}
+            icon={<Frown className="w-12 h-12 md:w-16 md:h-16 text-white" />}
             colorClass="bg-gradient-to-br from-red-400 to-red-600 hover:shadow-red-300/50"
             onClick={() => handleVote('unsatisfied')}
             disabled={showThankYou}
@@ -126,6 +126,9 @@ export default function Kiosk() {
       {/* Footer */}
       <footer className="py-6 text-center text-slate-400 text-sm md:text-base">
         <p>© 2024 Inquérito de Satisfação</p>
+        <a href="/admin/login" className="text-xs text-slate-300 hover:text-slate-500 mt-2 inline-block" data-testid="link-admin">
+          Administração
+        </a>
       </footer>
 
       {/* Fullscreen Thank You Overlay */}
